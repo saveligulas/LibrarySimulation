@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.joda.time.DateTime;
 import people.Human;
-import simulation.TimeSimulator;
+import simulation.TimeAffected;
 
 @Getter
 @Setter
-public abstract class LibraryObject extends SmallSizedObject implements TimeSimulator {
+public abstract class LibraryObject extends SmallSizedObject implements TimeAffected {
 
     private Human borrower = null;
     private DateTime leaseTime = DateTime.now();
