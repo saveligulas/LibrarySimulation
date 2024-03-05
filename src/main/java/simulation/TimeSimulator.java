@@ -1,18 +1,35 @@
 package simulation;
 
-import org.joda.time.DateTime;
 import org.joda.time.Period;
 
-public interface TimeSimulator {
+import java.util.ArrayList;
 
-    void simulateTimeInObject(Period period);
+public class TimeSimulator implements TimeAffected {
 
-    default void simulateTimePassage(Period period) {
-        TimeData.simulatePassageOfTime(period);
-        simulateTimeInObject(period);
+    private final ArrayList<TimeAffected> allTimeAffectedObjects = new ArrayList<>();
+
+    public void assignObject(TimeAffected object) {
+        if (allTimeAffectedObjects.contains(object)) {
+            throw new IllegalArgumentException("Object already assigned");
+        }
+        this.allTimeAffectedObjects.add(object);
     }
 
-    default DateTime getCurrentTime() {
-        return TimeData.getCurrentDateTime();
+    public void simulate(Period period, int repetitions) {
+        for (int i = 0; i < repetitions; i++) {
+            this.simulateTimeInObject(period);
+        }
+    }
+
+    @Override
+    public void simulateTimeInObject(Period period) {
+        for (TimeAffected obj : allTimeAffectedObjects) {
+            obj.simulateTimeInObject(period);
+        }
+    }
+
+    @Override
+    public void assignToTimeSimulator(TimeSimulator t) {
+
     }
 }
