@@ -18,6 +18,7 @@ public class TimeSimulator implements TimeAffected {
     public void simulate(Period period, int repetitions) {
         for (int i = 0; i < repetitions; i++) {
             this.simulateTimeInObject(period);
+            simulateTimePassage(period);
         }
     }
 

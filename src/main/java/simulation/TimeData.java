@@ -7,7 +7,7 @@ import org.joda.time.Period;
 
 
 public final class TimeData {
-    private final static DateTime START_DATETIME = new DateTime(2000, 1, 1, 0, 0);
+    private final static DateTime START_DATETIME = new DateTime(2000, 1, 1, 0, 0, 0);
     @Getter(AccessLevel.PUBLIC)
     private static DateTime currentDateTime = START_DATETIME;
 
