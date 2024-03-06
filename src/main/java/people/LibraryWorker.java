@@ -5,6 +5,7 @@ import lib.furniture.Counter;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import manager.OneToOneRelationShip;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
