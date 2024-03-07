@@ -1,6 +1,6 @@
 package exception;
 
-public class InvalidTimeException extends RuntimeException {
+public class InvalidTimeException extends Exception {
     public InvalidTimeException() {
     }
 
