@@ -27,14 +27,14 @@ public class LibraryWorker extends Human {
         this.workEndTime = workEndTime;
     }
 
-    public void setCounterStartTime(LocalTime counterStartTime) {
+    public void setCounterStartTime(LocalTime counterStartTime) throws InvalidTimeException {
         if (counterStartTime.compareTo(workStartTime) < 0 || counterStartTime.compareTo(workEndTime) >= 0) {
             throw new InvalidTimeException("Invalid counterStartTime");
         }
         this.counterStartTime = counterStartTime;
     }
 
-    public void setCounterEndTime(LocalTime counterEndTime) {
+    public void setCounterEndTime(LocalTime counterEndTime) throws InvalidTimeException {
         if (counterEndTime.compareTo(workStartTime) <= 0 || counterEndTime.compareTo(workEndTime) > 0 || (counterEndTime != null && this.counterStartTime.compareTo(counterEndTime) >= 0)) {
             throw new InvalidTimeException("Invalid counterEndTime");
         }
